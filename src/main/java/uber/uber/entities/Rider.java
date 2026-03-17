@@ -1,16 +1,20 @@
 package uber.uber.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-public class RiderEntity {
+@Getter
+@Setter
+public class Rider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user;
+    private User user;
 
     private Double rating;
 }

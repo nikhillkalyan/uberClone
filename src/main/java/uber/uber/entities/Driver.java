@@ -1,21 +1,27 @@
 package uber.uber.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import org.locationtech.jts.geom.Point;
 
 @Entity
-public class DriverEntity {
+@Getter
+@Setter
+public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user;
+    private User user;
 
     private Double rating;
     private Boolean available;
 
-    @Column(columnDefinition = "geometry(Point, 4326)")  // Use PostGIS geometry type for location. 4326 is used for Earth coordinates (latitude and longitude).
+    @Column(columnDefinition = "Geometry(Point, 4326)") // Use PostGIS geometry type for location. 4326 is used for
+                                                        // Earth coordinates (latitude and longitude).
     Point currentLocation;
 }

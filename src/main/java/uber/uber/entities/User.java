@@ -1,13 +1,17 @@
 package uber.uber.entities;
 
 import jakarta.persistence.*;
-import uber.uber.enums.Role;
+import lombok.Getter;
+import lombok.Setter;
+import uber.uber.entities.enums.Role;
 
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "app_users")
-public class UserEntity {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
